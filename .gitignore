@@ -38,18 +38,6 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Logs
-*.log
-
-# Kubernetes
-kubeconfig
-*.yaml
-*.yml
-
-# Certificates
-*.crt
-*.key
-*.pem
 
 # Local development
 .pytest_cache/
