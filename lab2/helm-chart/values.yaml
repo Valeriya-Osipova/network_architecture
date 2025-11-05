@@ -1,0 +1,31 @@
+# Vector Search App Configuration
+app:
+  replicaCount: 2
+  image:
+    repository: harbor.k8s.labs.itmo.loc/public/vector-search-app
+    tag: "v1.0"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 8000
+  ingress:
+    enabled: true
+    className: "public"
+    hosts:
+      - host: "app.k8s.labs.itmo.loc"
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: "cadevitmo"
+        hosts:
+          - "app.k8s.labs.itmo.loc"
+  env:
+    APP_ENV: "kubernetes"
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
