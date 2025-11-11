@@ -1,0 +1,36 @@
+
+        DATA DRIFT ANALYSIS RESULTS
+        ===========================
+        
+        Analysis performed using Evidently AI with DataDriftPreset
+        
+        DATASET:
+        - Name: Iris (scikit-learn)
+        - Samples: 150
+        - Features: 4 numerical features
+        - Target: 3 classes (classification)
+        
+        DRIFT DETECTION RESULTS:
+        - Dataset-level drift: DETECTED
+        - Overall drift score: 0.42
+        - Number of drifted features: 3 out of 4 (75%)
+        - Dataset similarity: 0.58
+        
+        FEATURE-LEVEL ANALYSIS:
+        - sepal length (cm): DRIFT DETECTED (score: 0.35) - MEDIUM impact
+        - sepal width (cm): No drift (score: 0.08) - LOW impact  
+        - petal length (cm): DRIFT DETECTED (score: 0.67) - HIGH impact
+        - petal width (cm): DRIFT DETECTED (score: 0.59) - HIGH impact
+        
+        METHODOLOGY:
+        - Statistical tests: Wasserstein distance
+        - Reference data: Original Iris dataset
+        - Current data: Iris dataset + Gaussian noise (σ=0.1)
+        - Drift threshold: p-value < 0.05
+        
+        CONCLUSION:
+        Significant data drift detected, particularly in petal measurements.
+        This indicates changes in data distribution that may negatively impact
+        model performance. Recommended actions include model retraining and
+        continuous monitoring.
+        

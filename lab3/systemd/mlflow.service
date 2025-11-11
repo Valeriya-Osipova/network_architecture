@@ -1,0 +1,22 @@
+[Unit]
+Description=MLflow Tracking Server
+After=network.target
+
+[Service]
+Type=simple
+User=user2
+Group=user2
+WorkingDirectory=/home/user2/mlflow
+Environment=PATH=/home/user2/mlflow/venv/bin
+ExecStart=/home/user2/mlflow/venv/bin/mlflow server \
+    --host 127.0.0.1 \
+    --port 5000 \
+    --backend-store-uri sqlite:////home/user2/mlflow/server/mlflow.db \
+    --default-artifact-root file:///home/user2/mlflow/artifacts \
+    --serve-artifacts \
+    --allowed-hosts "*"
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

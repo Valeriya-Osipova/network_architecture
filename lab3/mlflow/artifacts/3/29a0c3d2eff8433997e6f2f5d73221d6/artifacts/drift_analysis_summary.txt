@@ -1,0 +1,27 @@
+
+        DATA DRIFT ANALYSIS - FINAL REPORT
+        ==================================
+        
+        EXECUTIVE SUMMARY:
+        - Data drift detected: YES
+        - Overall drift score: 0.42 (Medium)
+        - Features with drift: 3 out of 4 (75%)
+        
+        DETAILED RESULTS:
+        - sepal length (cm): Drift detected (score: 0.35)
+        - sepal width (cm): No drift (score: 0.08) 
+        - petal length (cm): Drift detected (score: 0.67)
+        - petal width (cm): Drift detected (score: 0.59)
+        
+        METHODOLOGY:
+        - Tool: Evidently AI with DataDriftPreset
+        - Dataset: Iris (scikit-learn)
+        - Reference: Original Iris data
+        - Current: Iris data + Gaussian noise (σ=0.3)
+        - Statistical tests: Applied for drift detection
+        
+        CONCLUSION:
+        Significant data drift detected, particularly in petal measurements.
+        Model performance may be affected. Recommended actions: retraining,
+        feature monitoring, and root cause analysis.
+        
